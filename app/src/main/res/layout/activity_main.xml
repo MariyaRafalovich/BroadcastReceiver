@@ -30,4 +30,13 @@
         android:text="@string/btn_trigger_broadcast_txt"
         android:layout_above="@id/btnTrigLocalBroadcast" />
 
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnTrigBroadcast"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="52dp"
+        android:id="@+id/progressBar" />
+
 </RelativeLayout>

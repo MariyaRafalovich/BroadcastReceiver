@@ -2,6 +2,7 @@ package com.example.mariya.broadcastmanager;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView textView;
     private static final String TAG = MainActivity.class.getSimpleName();
     private TextView whichView;
+    private SystemBroadcastReceiver MyLocalReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             SentBroadcast.setOnClickListener(this);
 
 
-            LocalBroadcastManager.getInstance(this).registerReceiver(this.myLocalReceiver, new IntentFilter("my-custom-intentfilter"));
+            LocalBroadcastManager.getInstance(this).registerReceiver(this.MyLocalReceiver, new IntentFilter("my-custom-intentfilter"));
         }
 
     @Override
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           }else if(whichView.getId() == R.id.btnTrigLocalBroadcast){
                 Log.i(MainActivity.TAG, "CUSTOM_BROADCAST_SECOND");
                 LocalBroadcastManager.getInstance(this).sendBroadcast(
-                        new Intent().setAction(getString(R.string.android_intent_action_CUSTOM_ACTION));
+                        new Intent().setAction(getString(R.string.android_intent_action_CUSTOM_ACTION)));
             }
         }
 
